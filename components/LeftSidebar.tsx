@@ -1,20 +1,23 @@
-"use client";
-import React from 'react'
+'use client';
+
+import { sidebarLinks } from '@/constants'
+import { cn } from '@/lib/utils'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import { sidebarLinks } from '../constants'
-import { usePathname } from 'next/navigation'
-import { useRouter } from 'next/navigation'
-import { cn } from '../lib/utils'
+import { usePathname, useRouter } from 'next/navigation'
+import React from 'react'
+import { Button } from './ui/button';
+
 
 const LeftSidebar = () => {
-    const pathname = usePathname();
-    const router = useRouter();
+  const pathname = usePathname();
+  const router = useRouter();
 
 
   return (
-
-    <nav className="flex flex-col gap-6">
+    <section className="left_sidebar">
+      <nav className="flex flex-col gap-6">
         <Link href="/" className="flex cursor-pointer items-center gap-1 pb-10 max-lg:justify-center">
           <Image src="/icons/logo.svg" alt="logo" width={23} height={27} />
           <h1 className="text-24 font-extrabold text-white max-lg:hidden">Podcastr</h1>
@@ -30,7 +33,9 @@ const LeftSidebar = () => {
             <p>{label}</p>
           </Link>
         })}
-      </nav>
+      </nav>  
+      
+    </section>
   )
 }
 
